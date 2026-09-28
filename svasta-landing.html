@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SVASTA — Ancient Wisdom. Bottled for the World.</title>
+<meta name="description" content="SVASTA is a global ayurvedic wellness beverage company. 5,000 farmer partners, 12 countries, zero compromise. Find your dosha in 60 seconds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#1B4332; --forest-dark:#0E2A1D; --gold:#E9B44C; --gold-deep:#D19B2F;
+  --terra:#C1502E; --cream:#FAF6EF; --sand:#F1E8D7; --leaf:#74A57F;
+  --ink:#22301F; --muted:#5C6B58; --white:#FFFFFF;
+  --font-head:'Playfair Display',serif; --font-body:'Inter',sans-serif;
+  --shadow:0 10px 30px rgba(27,67,50,.12); --shadow-lg:0 20px 50px rgba(27,67,50,.18);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-body);color:var(--ink);background:var(--cream);line-height:1.65;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--font-head);line-height:1.15}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+section{padding:88px 0}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--terra);margin-bottom:14px}
+.eyebrow-dark{color:var(--gold)}
+h2{font-size:clamp(1.9rem,4vw,2.9rem);color:var(--forest);margin-bottom:18px}
+.section-dark h2{color:var(--cream)}
+.sub{color:var(--muted);max-width:640px;font-size:1.06rem}
+.center{text-align:center}.center .sub{margin:0 auto}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(250,246,239,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(27,67,50,.08)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-head);font-weight:800;font-size:1.5rem;color:var(--forest);text-decoration:none;letter-spacing:.06em}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--ink);text-decoration:none;font-weight:500;font-size:.92rem;transition:color .15s}
+.nav-links a:hover{color:var(--terra)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:999px;font-weight:700;font-size:.95rem;text-decoration:none;cursor:pointer;border:none;transition:all .25s;font-family:var(--font-body)}
+.btn-gold{background:var(--gold);color:var(--forest-dark);box-shadow:0 6px 20px rgba(233,180,76,.45)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(233,180,76,.55)}
+.btn-outline{background:transparent;color:var(--cream);border:2px solid var(--cream)}
+.btn-outline:hover{background:var(--cream);color:var(--forest)}
+.btn-forest{background:var(--forest);color:var(--cream)}
+.btn-forest:hover{transform:translateY(-2px);background:var(--forest-dark)}
+
+/* HERO */
+.hero{position:relative;background:linear-gradient(160deg,var(--forest) 0%,#2D6A4F 55%,var(--forest-dark) 100%);color:var(--cream);padding:110px 0 100px;overflow:hidden}
+.hero::before{content:'❁';position:absolute;right:-60px;top:-40px;font-size:420px;opacity:.06;transform:rotate(25deg)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;position:relative}
+.hero h1{font-size:clamp(2.4rem,5.2vw,4rem);color:var(--cream);margin-bottom:20px}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero p{color:#D7E4DC;font-size:1.12rem;max-width:520px;margin-bottom:32px}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:38px;margin-top:48px;flex-wrap:wrap}
+.hero-stat b{display:block;font-family:var(--font-head);font-size:1.9rem;color:var(--gold)}
+.hero-stat span{font-size:.85rem;color:#B9CDBF}
+.bottle{position:relative;border-radius:28px;text-align:center;min-height:540px}
+.bottle h3{color:var(--gold);font-size:1.5rem;margin:14px 0 8px}
+.bottle p{color:#CBDCD1;font-size:.95rem;max-width:280px;margin:0 auto}
+.bottle-tags{display:flex;gap:8px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+.tag{font-size:.72rem;font-weight:600;padding:6px 14px;border-radius:999px;background:rgba(250,246,239,.12);color:var(--cream);border:1px solid rgba(250,246,239,.2)}
+
+/* TRUST BAR */
+.trust{background:var(--sand);padding:26px 0}
+.trust-row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.trust-chip{font-size:.8rem;font-weight:700;letter-spacing:.08em;color:var(--forest);background:rgba(255,255,255,.7);border:1px solid rgba(27,67,50,.12);padding:10px 20px;border-radius:999px}
+
+/* STORY */
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.story-big{font-family:var(--font-head);font-size:clamp(1.6rem,3vw,2.3rem);color:var(--forest);line-height:1.35;margin-bottom:22px}
+.story-big em{color:var(--terra);font-style:normal;font-weight:700}
+.story p{color:var(--muted);margin-bottom:16px}
+.story-list{margin-top:22px;display:grid;gap:12px}
+.story-item{display:flex;gap:14px;align-items:flex-start}
+.story-item b{color:var(--forest)}
+.story-dot{width:34px;height:34px;flex:0 0 34px;border-radius:50%;background:var(--gold);color:var(--forest-dark);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem}
+.story-visual{border-radius:28px;color:var(--cream);position:relative;overflow:hidden;min-height:560px}
+.story-visual::after{content:'ॐ';position:absolute;bottom:-30px;right:10px;font-size:180px;opacity:.08}
+.quote{font-family:var(--font-head);font-size:1.35rem;line-height:1.5;margin-bottom:22px}
+.quote-mark{color:var(--gold);font-size:2.6rem;line-height:0;display:block;margin-bottom:18px}
+.attrib{font-size:.9rem;color:#B9CDBF}
+
+/* PRODUCTS */
+.products{background:var(--cream)}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px}
+.prod-card{background:var(--white);border-radius:20px;padding:30px 24px;border:1px solid rgba(27,67,50,.08);position:relative;transition:all .25s}
+.prod-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--terra);border-radius:20px 20px 0 0;opacity:0;transition:opacity .25s}
+.prod-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.prod-card:hover::before{opacity:1}
+.prod-emoji{font-size:3.2rem}
+.prod-card h3{font-size:1.35rem;color:var(--forest);margin:14px 0 4px}
+.prod-benefit{font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--terra);margin-bottom:12px}
+.prod-card p{font-size:.9rem;color:var(--muted);margin-bottom:16px;min-height:66px}
+.prod-ings{font-size:.78rem;color:var(--leaf);font-weight:600;margin-bottom:18px}
+.prod-foot{display:flex;align-items:center;justify-content:space-between}
+.prod-price{font-family:var(--font-head);font-weight:700;font-size:1.2rem;color:var(--forest)}
+.prod-price small{font-size:.72rem;color:var(--muted);font-family:var(--font-body)}
+.prod-link{font-size:.85rem;font-weight:700;color:var(--terra);text-decoration:none}
+.prod-link:hover{text-decoration:underline}
+
+/* QUIZ (viral) */
+.quiz{background:linear-gradient(150deg,var(--forest-dark),var(--forest));color:var(--cream)}
+.quiz-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.quiz h2{color:var(--cream)}
+.quiz .sub{color:#C9D8CE}
+.quiz-panel{background:rgba(250,246,239,.06);border:1px solid rgba(250,246,239,.15);border-radius:24px;padding:36px}
+.quiz-progress{font-size:.78rem;font-weight:700;letter-spacing:.15em;color:var(--gold);margin-bottom:16px}
+.quiz-q{font-family:var(--font-head);font-size:1.45rem;margin-bottom:22px;min-height:64px}
+.quiz-opts{display:grid;gap:12px}
+.quiz-opt{padding:15px 20px;border-radius:14px;background:rgba(250,246,239,.08);border:1px solid rgba(250,246,239,.18);cursor:pointer;font-size:.95rem;transition:all .2s;text-align:left;color:var(--cream);font-family:var(--font-body)}
+.quiz-opt:hover{background:var(--gold);color:var(--forest-dark);transform:translateX(4px)}
+.quiz-result{display:none}
+.quiz-result .dosha{font-family:var(--font-head);font-size:2.6rem;color:var(--gold);margin:10px 0 6px}
+.quiz-result p{color:#C9D8CE;font-size:.98rem}
+.result-rec{margin-top:20px;background:rgba(233,180,76,.14);border:1px solid rgba(233,180,76,.35);border-radius:16px;padding:18px 22px;font-size:.95rem}
+.result-actions{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+.viral-note{margin-top:18px;font-size:.82rem;color:#9FB8A8}
+
+/* SCIENCE */
+.sci-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.sci-card{background:var(--white);border-radius:18px;padding:30px;border:1px solid rgba(27,67,50,.08)}
+.sci-num{font-family:var(--font-head);font-size:2rem;color:var(--terra);margin-bottom:8px}
+.sci-card h3{font-size:1.15rem;color:var(--forest);margin-bottom:8px}
+.sci-card p{font-size:.9rem;color:var(--muted)}
+
+/* MARKETS */
+.markets{background:var(--sand)}
+.market-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
+.mstat{background:var(--white);border-radius:18px;padding:28px;text-align:center;border:1px solid rgba(27,67,50,.08)}
+.mstat b{display:block;font-family:var(--font-head);font-size:2.4rem;color:var(--forest)}
+.mstat span{font-size:.85rem;color:var(--muted)}
+.market-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:34px}
+.mchip{padding:10px 20px;border-radius:999px;background:var(--white);border:1px solid rgba(27,67,50,.12);font-size:.86rem;font-weight:600;color:var(--forest)}
+.mchip.hq{background:var(--forest);color:var(--gold);border-color:var(--forest)}
+
+/* CAMPAIGNS */
+.camp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.camp-card{border-radius:20px;overflow:hidden;background:var(--white);border:1px solid rgba(27,67,50,.08);transition:all .25s}
+.camp-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.camp-top{padding:26px;background:linear-gradient(140deg,var(--forest),#2D6A4F);color:var(--cream)}
+.camp-top.alt{background:linear-gradient(140deg,var(--terra),#8A3B20)}
+.camp-top.gold{background:linear-gradient(140deg,var(--gold-deep,#D19B2F),var(--gold));color:var(--forest-dark)}
+.camp-hash{font-weight:800;font-size:1.05rem;letter-spacing:.03em}
+.camp-top p{font-size:.85rem;margin-top:8px;opacity:.85}
+.camp-body{padding:24px}
+.camp-body p{font-size:.9rem;color:var(--muted)}
+.camp-meta{margin-top:14px;font-size:.8rem;font-weight:700;color:var(--leaf)}
+
+/* DISTRIBUTION */
+.dist-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.dist-card{background:var(--white);border-radius:18px;padding:30px;border:1px solid rgba(27,67,50,.08);text-align:center;transition:all .25s}
+.dist-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.dist-icon{font-size:2.4rem}
+.dist-card h3{font-size:1.2rem;color:var(--forest);margin:12px 0 8px}
+.dist-card p{font-size:.9rem;color:var(--muted);margin-bottom:14px}
+.dist-num{font-family:var(--font-head);font-size:1.5rem;color:var(--terra);font-weight:700}
+
+/* SUSTAINABILITY */
+.sustain{background:linear-gradient(160deg,var(--forest-dark),var(--forest));color:var(--cream)}
+.sustain h2{color:var(--cream)}
+.sustain .sub{color:#BFD3C6}
+.sus-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:44px}
+.sus-card{background:rgba(250,246,239,.06);border:1px solid rgba(250,246,239,.14);border-radius:18px;padding:28px}
+.sus-card b{font-family:var(--font-head);font-size:1.9rem;color:var(--gold);display:block;margin-bottom:8px}
+.sus-card h4{color:var(--cream);font-size:1.02rem;margin-bottom:8px;font-family:var(--font-body);font-weight:700}
+.sus-card p{font-size:.85rem;color:#AEC4B4}
+
+/* LEADERSHIP */
+.lead-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.lead-card{background:var(--white);border-radius:20px;padding:32px;border:1px solid rgba(27,67,50,.08);text-align:center}
+.lead-avatar{width:84px;height:84px;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:800;font-size:1.6rem;color:var(--forest-dark);background:linear-gradient(140deg,var(--gold),#F2CD7E)}
+.lead-card h3{font-size:1.25rem;color:var(--forest)}
+.lead-role{font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--terra);margin:6px 0 12px}
+.lead-card p{font-size:.88rem;color:var(--muted)}
+.lead-card.founder{background:linear-gradient(160deg,#FFF9EC,var(--white));border:1.5px solid rgba(233,180,76,.55)}
+
+/* PARTNERS */
+.partners{background:var(--sand)}
+.partner-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:36px}
+.pchip{padding:16px 26px;background:var(--white);border:1px solid rgba(27,67,50,.1);border-radius:14px;font-weight:700;color:var(--forest);font-size:.92rem;letter-spacing:.02em}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.testi{background:var(--white);border-radius:18px;padding:28px;border:1px solid rgba(27,67,50,.08)}
+.stars{color:var(--gold-deep,#D19B2F);font-size:1rem;letter-spacing:2px;margin-bottom:12px}
+.testi p{font-size:.93rem;color:var(--ink);font-style:italic;margin-bottom:16px}
+.testi b{font-size:.85rem;color:var(--forest)}
+.testi span{display:block;font-size:.78rem;color:var(--muted)}
+
+/* FINAL CTA */
+.final{background:var(--forest);color:var(--cream);text-align:center;position:relative;overflow:hidden}
+.final::before{content:'❁';position:absolute;left:-40px;bottom:-80px;font-size:300px;opacity:.05}
+.final h2{color:var(--cream);font-size:clamp(2rem,4.5vw,3.2rem)}
+.final .sub{margin:0 auto 34px;color:#C9D8CE}
+.news{display:flex;gap:12px;max-width:520px;margin:26px auto 0;flex-wrap:wrap;justify-content:center}
+.news input{flex:1;min-width:240px;padding:16px 22px;border-radius:999px;border:1px solid rgba(250,246,239,.3);background:rgba(250,246,239,.08);color:var(--cream);font-family:var(--font-body);font-size:.95rem}
+.news input::placeholder{color:#9FB8A8}
+
+/* FOOTER */
+footer{background:var(--forest-dark);color:#9FB8A8;padding:56px 0 30px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.foot-grid h4{color:var(--cream);font-size:.85rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:14px}
+.foot-grid a{display:block;color:#9FB8A8;text-decoration:none;font-size:.88rem;margin-bottom:9px;transition:color .15s}
+.foot-grid a:hover{color:var(--gold)}
+.foot-logo{font-family:var(--font-head);font-weight:800;font-size:1.6rem;color:var(--cream);margin-bottom:12px}
+.foot-grid p{font-size:.86rem;max-width:280px}
+.foot-bottom{border-top:1px solid rgba(250,246,239,.1);padding-top:24px;display:flex;justify-content:space-between;font-size:.8rem;flex-wrap:wrap;gap:10px}
+
+@media(max-width:1024px){
+  .hero-grid,.quiz-grid,.story-grid{grid-template-columns:1fr}
+  #testi-wrap{grid-template-columns:1fr!important}
+  .prod-grid{grid-template-columns:repeat(2,1fr)}
+  .sus-grid,.market-stats{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  section{padding:64px 0}
+  div[style*="grid-template-columns:1.2fr 1fr 1.2fr"]{grid-template-columns:1fr!important;height:auto!important}
+  .final .container{grid-template-columns:1fr!important}
+  .final h2{text-align:center!important}
+  .final .news{justify-content:center!important;margin:26px auto 0!important}
+  .nav-links{display:none}
+  .prod-grid,.camp-grid,.dist-grid,.sci-grid,.lead-grid,.testi-grid{grid-template-columns:1fr}
+  .hero{padding:70px 0 60px}
+  .hero-stats{gap:22px}
+  .foot-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container nav-inner" style="display:flex;align-items:center;justify-content:space-between;height:72px">
+    <a class="logo" href="#">SVASTA <span>❁</span></a>
+    <ul class="nav-links">
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#quiz">Find Your Dosha</a></li>
+      <li><a href="#markets">Markets</a></li>
+      <li><a href="#sustainability">Sustainability</a></li>
+      <li><a href="#leadership">Leadership</a></li>
+    </ul>
+    <a class="btn btn-gold" href="#products" style="padding:11px 24px">Shop Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow eyebrow-dark">The Global Ayurvedic Beverage Company</span>
+      <h1>Ancient Wisdom.<br><em>Bottled for the World.</em></h1>
+      <p>SVASTA turns 5,000 years of Ayurveda into modern, science-validated wellness drinks — crafted with 5,000 farmer partners, certified organic, and loved across 12 countries.</p>
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="#quiz">Find Your Dosha →</a>
+        <a class="btn btn-outline" href="#products">Explore Products</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><b data-count="12">0</b><span>Countries</span></div>
+        <div class="hero-stat"><b data-count="5000">0</b><span>Farmers</span></div>
+        <div class="hero-stat"><b data-count="98">0</b><span>% Natural</span></div>
+        <div class="hero-stat"><b data-count="24">0</b><span>Million Bottles</span></div>
+      </div>
+    </div>
+    <div class="bottle" style="padding:0;overflow:hidden">
+      <img src="images/bottle-golden.jpg" alt="SVASTA Golden — turmeric, ashwagandha and tulsi wellness drink" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:28px;box-shadow:0 30px 80px rgba(0,0,0,.45)">
+      <div class="bottle-tags" style="position:absolute;bottom:22px;left:0;right:0;justify-content:center">
+        <span class="tag" style="background:rgba(14,42,29,.72)">USDA Organic</span><span class="tag" style="background:rgba(14,42,29,.72)">No Refined Sugar</span><span class="tag" style="background:rgba(14,42,29,.72)">Clinically Studied</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="container trust-row">
+    <span class="trust-chip">✦ FSSAI Certified</span>
+    <span class="trust-chip">✦ USDA Organic</span>
+    <span class="trust-chip">✦ EU Organic</span>
+    <span class="trust-chip">✦ AYUSH Approved</span>
+    <span class="trust-chip">✦ HACCP + GMP</span>
+    <span class="trust-chip">✦ Halal & Kosher</span>
+  </div>
+</div>
+
+<!-- STORY -->
+<section id="story">
+  <div class="container story-grid">
+    <div>
+      <span class="eyebrow">Our Story</span>
+      <div class="story-big">From a grandmother's kitchen in Kerala to <em>supermarket shelves on four continents.</em></div>
+      <p>SVASTA began with one belief: the world's oldest science of wellbeing deserves the world's newest standards of quality. Our founder watched his mother brew ashwagandha and tulsi for every ailment — and asked why this wisdom was missing from modern life.</p>
+      <p>Today we work directly with 5,000 farmer partners across Kerala, Rajasthan and Uttarakhand, standardise every botanical batch in our NABL-accredited labs, and bottle calm, focus, immunity and rest for the modern world.</p>
+      <div class="story-list">
+        <div class="story-item"><span class="story-dot">1</span><div><b>Source with dignity</b> — fair-pay farm clusters, 3x market rate for organic crops.</div></div>
+        <div class="story-item"><span class="story-dot">2</span><div><b>Validate with science</b> — every batch clinically fingerprinted, every claim third-party tested.</div></div>
+        <div class="story-item"><span class="story-dot">3</span><div><b>Serve with respect</b> — recipes tuned for regional tastes, never a one-world formula.</div></div>
+      </div>
+    </div>
+    <div class="story-visual" style="padding:0;display:grid">
+      <img src="images/farm-kerala.jpg" alt="Organic tulsi and turmeric farms in Kerala at golden hour" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:28px">
+      <div style="position:relative;background:linear-gradient(180deg,rgba(14,42,29,0) 0%,rgba(14,42,29,.88) 55%);border-radius:0 0 28px 28px;padding:26px 30px;margin-top:-190px">
+        <div class="quote" style="font-size:1.15rem">"My mother healed our whole street with a copper pot and seven herbs. SVASTA is that copper pot — reforged in steel, standardised in labs, shipped to the world."</div>
+        <div class="attrib">— Mahesh Koria, Founder & CEO</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROOTS BAND -->
+<section style="background:var(--sand);padding:0">
+  <div style="display:grid;grid-template-columns:1.2fr 1fr 1.2fr;height:420px">
+    <div style="overflow:hidden"><img src="images/heritage-copper.jpg" alt="Ayurvedic herbs in traditional brass and copper" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div style="background:var(--forest);color:var(--cream);display:flex;flex-direction:column;justify-content:center;padding:40px;text-align:center">
+      <span class="eyebrow eyebrow-dark">The Roots</span>
+      <div style="font-family:var(--font-head);font-size:1.7rem;line-height:1.3;margin:10px 0 16px">5,000 years in a copper pot.<br>New standards in every bottle.</div>
+      <p style="color:#B9CDBF;font-size:.95rem">Kerala farms → NABL labs → your daily ritual. Nothing synthetic between the soil and you.</p>
+      <a href="#quiz" style="color:var(--gold);font-weight:700;text-decoration:none;margin-top:14px">Meet your dosha →</a>
+    </div>
+    <div style="overflow:hidden"><img src="images/ritual-flatlay.jpg" alt="The SVASTA ritual — bottles, diya and botanicals" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" class="products">
+  <div class="container center">
+    <span class="eyebrow">The Portfolio</span>
+    <h2>Four Rituals. Every Body. Every Day.</h2>
+    <p class="sub" style="margin:0 auto">Each formula is a classical ayurvedic pairing, standardised to clinical-grade actives — with none of the sugar, none of the crash.</p>
+    <div style="margin:36px 0 8px;border-radius:22px;overflow:hidden;box-shadow:var(--shadow-lg)">
+      <img src="images/product-lineup.jpg" alt="The SVASTA ritual lineup — four botanical elixirs" style="width:100%;display:block">
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card">
+        <div class="prod-emoji">🌟</div>
+        <h3>SVASTA Golden</h3>
+        <div class="prod-benefit">Immunity + Vitality</div>
+        <p>Turmeric, ashwagandha & tulsi with black pepper for absorption. The morning ritual.</p>
+        <div class="prod-ings">250ml · 22 kcal · Zero refined sugar</div>
+        <div class="prod-foot"><span class="prod-price">$3.49 <small>/ bottle</small></span><a class="prod-link" href="#">Buy →</a></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-emoji">🌿</div>
+        <h3>SVASTA Cool</h3>
+        <div class="prod-benefit">Focus + Calm</div>
+        <p>Amla, brahmi & mint. Replaces the 3pm coffee with clarity that lasts.</p>
+        <div class="prod-ings">250ml · 18 kcal · Vitamin C natural</div>
+        <div class="prod-foot"><span class="prod-price">$3.49 <small>/ bottle</small></span><a class="prod-link" href="#">Buy →</a></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-emoji">⚡</div>
+        <h3>SVASTA Boost</h3>
+        <div class="prod-benefit">Energy, No Crash</div>
+        <p>Shatavari, gokshura & ginger. Pre-workout power from plants, not caffeine.</p>
+        <div class="prod-ings">250ml · 25 kcal · Electrolyte support</div>
+        <div class="prod-foot"><span class="prod-price">$3.99 <small>/ bottle</small></span><a class="prod-link" href="#">Buy →</a></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-emoji">🌙</div>
+        <h3>SVASTA Night</h3>
+        <div class="prod-benefit">Deep Rest</div>
+        <p>Jatamansi, chamomile & nutmeg. The wind-down tonic for the over-caffeinated world.</p>
+        <div class="prod-ings">250ml · 15 kcal · Melatonin-free</div>
+        <div class="prod-foot"><span class="prod-price">$3.99 <small>/ bottle</small></span><a class="prod-link" href="#">Buy →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" class="quiz">
+  <div class="container quiz-grid">
+    <div>
+      <span class="eyebrow eyebrow-dark">Viral Ritual · 60 Seconds</span>
+      <h2>What's Your Dosha?</h2>
+      <p class="sub">In Ayurveda, wellness is personal. Answer 3 quick questions and meet the SVASTA your body has been asking for. Then share your result — 2.1 million people already have.</p>
+      <div class="hero-cta" style="margin-top:26px">
+        <span class="tag">🔁 #MyDoshaMyRitual</span>
+        <span class="tag">📸 2.1M shares</span>
+      </div>
+    </div>
+    <div class="quiz-panel" id="quizPanel">
+      <div class="quiz-progress"><span class="quiz-progress" id="qProg">QUESTION 1 / 3</span></div>
+      <div class="quiz-q" id="qText">When stress hits, you mostly feel…</div>
+      <div class="quiz-opts" id="qOpts"></div>
+      <div class="quiz-result" id="qResult">
+        <span class="quiz-progress">YOUR DOSHA</span>
+        <div class="dosha" id="doshaName">—</div>
+        <p id="doshaDesc"></p>
+        <div class="result-rec" id="doshaRec"></div>
+        <div class="result-actions">
+          <a class="btn btn-gold" id="shareBtn" href="#">Share My Result ✨</a>
+          <button class="btn btn-outline" id="retryBtn">Retake</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCIENCE -->
+<section>
+  <div class="container center">
+    <span class="eyebrow">Ayurveda, Verified</span>
+    <h2>Tradition You Can Test.</h2>
+    <p class="sub" style="margin:0 auto 34px">We honour the texts — and we test like a pharma lab. That's the SVASTA standard.</p>
+    <div style="border-radius:22px;overflow:hidden;box-shadow:var(--shadow-lg);max-width:900px;margin:0 auto">
+      <img src="images/lab-science.jpg" alt="SVASTA phytochemistry lab — standardising every botanical batch" style="width:100%;display:block">
+    </div>
+    <div class="sci-grid">
+      <div class="sci-card"><div class="sci-num">40+</div><h3>Standardised Actives</h3><p>Every herb lot fingerprinted for withanolides, tannins and volatile oils before it enters a bottle.</p></div>
+      <div class="sci-card"><div class="sci-num">7</div><h3>University Partnerships</h3><p>Ongoing clinical collaborations on ashwagandha, amla and jatamansi efficacy with Indian & EU institutes.</p></div>
+      <div class="sci-card"><div class="sci-num">0</div><h3>Artificial Anything</h3><p>No synthetic colours, flavours, preservatives or refined sugar. Ever. In any market. No exceptions.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKETS -->
+<section class="markets" id="markets">
+  <div class="container center">
+    <span class="eyebrow">Global Footprint</span>
+    <h2>Born in India. Poured Everywhere.</h2>
+    <div style="border-radius:22px;overflow:hidden;box-shadow:var(--shadow-lg);max-width:960px;margin:26px auto">
+      <img src="images/world-map.jpg" alt="SVASTA exports radiating from India across the world" style="width:100%;display:block">
+    </div>
+    <div class="market-stats">
+      <div class="mstat"><b data-count="12">0</b><span>Countries</span></div>
+      <div class="mstat"><b data-count="1400">0</b><span>Retail Doors</span></div>
+      <div class="mstat"><b data-count="31">0</b><span>Online Markets</span></div>
+      <div class="mstat"><b data-count="94">0</b><span>% Repeat Rate (D2C)</span></div>
+    </div>
+    <div class="market-chips">
+      <span class="mchip hq">🇮🇳 India — HQ</span><span class="mchip">🇦🇪 UAE</span><span class="mchip">🇸🇦 KSA</span><span class="mchip">🇬🇧 UK</span><span class="mchip">🇺🇸 USA</span><span class="mchip">🇸🇬 Singapore</span><span class="mchip">🇩🇪 Germany</span><span class="mchip">🇫🇷 France</span><span class="mchip">🇨🇦 Canada</span><span class="mchip">🇦🇺 Australia</span><span class="mchip">🇯🇵 Japan</span><span class="mchip">🇳🇱 Netherlands</span>
+    </div>
+  </div>
+</section>
+
+<!-- CAMPAIGNS -->
+<section>
+  <div class="container center">
+    <span class="eyebrow">Brand Campaigns</span>
+    <h2>Campaigns That Move Culture.</h2>
+    <div class="camp-grid">
+      <div class="camp-card">
+        <div class="camp-top"><div class="camp-hash">#HarGharSwasth</div><p>India's biggest home-wellness movement — one SVASTA ritual in every household.</p></div>
+        <div class="camp-body"><p>Regional creators, kitchen-table storytelling, and free immunity starter kits for 100,000 families.</p><div class="camp-meta">📺 TV + Reels · Live now</div></div>
+      </div>
+      <div class="camp-card">
+        <div class="camp-top alt"><div class="camp-hash">#SwapTheSoda</div><p>Global challenge: trade one cola a day for a plant-powered ritual. 30 days. Feel the difference.</p></div>
+        <div class="camp-body"><p>UGC-driven, 12-language rollout with fitness and yoga creators across 9 markets.</p><div class="camp-meta">🎬 TikTok/Reels · Q1 flagship</div></div>
+      </div>
+      <div class="camp-card">
+        <div class="camp-top gold"><div class="camp-hash">#MyDoshaMyRitual</div><p>The viral quiz engine — personalised dosha results shared as beautiful story cards.</p></div>
+        <div class="camp-body"><p>2.1M quiz completions, 38% share rate, zero ad spend in seed phase.</p><div class="camp-meta">✨ Interactive · Always-on</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISTRIBUTION -->
+<section style="background:var(--cream)">
+  <div class="container center">
+    <span class="eyebrow">Distribution Engine</span>
+    <h2>Every Shelf. Every Screen. Every City.</h2>
+    <div class="dist-grid">
+      <div class="dist-card"><div class="dist-icon">🛒</div><h3>Modern Trade</h3><p>1,400+ doors across premium grocery, convenience & pharmacy chains.</p><div class="dist-num">42% of volume</div></div>
+      <div class="dist-card"><div class="dist-icon">📱</div><h3>D2C & Marketplaces</h3><p>svasta.com subscription ritual boxes plus Amazon, Flipkart, Noon, iHerb.</p><div class="dist-num">35% of volume</div></div>
+      <div class="dist-card"><div class="dist-icon">🏨</div><h3>HoReCa & Airlines</h3><p>Wellness menus in 5-star spas, gyms, cafés and 3 international carriers.</p><div class="dist-num">23% of volume</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SUSTAINABILITY -->
+<section class="sustain" id="sustainability">
+  <div class="container center">
+    <span class="eyebrow eyebrow-dark">Sustainability</span>
+    <h2>Good for You. Good for the Grower. Good for the Ground.</h2>
+    <p class="sub" style="margin:0 auto 34px">Wellness that costs the earth is not wellness. Our 2030 commitments are audited annually and published openly.</p>
+    <div style="border-radius:22px;overflow:hidden;box-shadow:var(--shadow-lg);max-width:960px;margin:0 auto 8px">
+      <img src="images/farmers-team.jpg" alt="Our 5,000 farmer partners — organic tulsi and turmeric harvest" style="width:100%;display:block">
+    </div>
+    <div class="sus-grid">
+      <div class="sus-card"><b>5,000+</b><h4>Farmer Partners</h4><p>Direct-sourcing clusters with 3x-market organic premiums and zero-debt target for every member by 2028.</p></div>
+      <div class="sus-card"><b>100%</b><h4>Circular Packaging</h4><p>Glass-first bottles, 90% rPET line by 2027, zero packaging to landfill by 2030.</p></div>
+      <div class="sus-card"><b>3x</b><h4>Water-Positive by 2030</h4><p>Rainwater harvesting and watershed restoration in every sourcing district.</p></div>
+      <div class="sus-card"><b>Net-0</b><h4>Carbon by 2030</h4><p>Solar-powered plants today; full value-chain neutrality audited by 2030.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership">
+  <div class="container center">
+    <span class="eyebrow">Leadership</span>
+    <h2>Built by Operators. Guided by Healers.</h2>
+    <div class="lead-grid">
+      <div class="lead-card founder">
+        <div class="lead-avatar">MK</div>
+        <h3>Mahesh Koria</h3>
+        <div class="lead-role">Founder & CEO</div>
+        <p>JBIMS MBA; 19+ years scaling BFSI operations and data businesses. Raised in Dharavi by a maid who believed in plants and prayer — SVASTA is his love letter to both.</p>
+      </div>
+      <div class="lead-card">
+        <div class="lead-avatar" style="background:linear-gradient(140deg,var(--leaf),#A7C4B5)">AR</div>
+        <h3>Dr. Anaya Raghavan</h3>
+        <div class="lead-role">Chief Science Officer</div>
+        <p>PhD Pharmacognosy (IIT Bombay). 15 years in phytochemical standardisation; leads our clinical validation program.</p>
+      </div>
+      <div class="lead-card">
+        <div class="lead-avatar" style="background:linear-gradient(140deg,#C1502E,#E0805F)">RS</div>
+        <h3>Rohan Sharma</h3>
+        <div class="lead-role">Chief Commercial Officer</div>
+        <p>Ex-global beverages VP; built 40-market distribution networks across GCC, EU and APAC.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="partners">
+  <div class="container center">
+    <span class="eyebrow">Partnerships</span>
+    <h2>We Grow With the Best.</h2>
+    <div class="partner-row">
+      <span class="pchip">🤝 5,000-Farm Sourcing Collective</span>
+      <span class="pchip">🏨 Taj Wellness Spas</span>
+      <span class="pchip">✈️ Emirates First-Class</span>
+      <span class="pchip">🧪 NABL Labs</span>
+      <span class="pchip">🎓 AIIMS Research Program</span>
+      <span class="pchip">🏬 Nature's Basket</span>
+      <span class="pchip">🛒 Amazon Global</span>
+      <span class="pchip">🌐 Whole Foods EU</span>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+  <div class="container center">
+    <span class="eyebrow">Voices</span>
+    <h2>Loved Across Time Zones.</h2>
+    <div id="testi-wrap" style="display:grid;grid-template-columns:1fr 1.6fr;gap:24px;margin-top:40px;align-items:stretch">
+      <div style="border-radius:22px;overflow:hidden;box-shadow:var(--shadow-lg);min-height:380px">
+        <img src="images/lifestyle-morning.jpg" alt="A SVASTA morning ritual at home" style="width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+      <div class="testi-grid" style="margin-top:0">
+      <div class="testi"><div class="stars">★★★★★</div><p>"I swapped my 4pm espresso for SVASTA Cool. Six weeks in — calmer mind, better sleep, zero crash. It's a ritual now."</p><b>Priya M.</b><span>Product Lead · London</span></div>
+      <div class="testi"><div class="stars">★★★★★</div><p>"Night is the first drink that actually slows my brain without pills. My whole team in Dubai orders the ritual box."</p><b>Omar A.</b><span>Portfolio Manager · Dubai</span></div>
+      <div class="testi"><div class="stars">★★★★★</div><p>"My grandmother recognised the taste before I told her the ingredients. That's when I knew this was real."</p><b>Ananya K.</b><span>Doctor · Mumbai</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center">
+    <div style="border-radius:26px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5);display:block">
+      <img src="images/pour-macro.jpg" alt="SVASTA Golden poured over fresh turmeric and tulsi" style="width:100%;display:block">
+    </div>
+    <div class="center" style="text-align:left">
+    <span class="eyebrow eyebrow-dark">Join the Ritual</span>
+    <h2 style="text-align:left">Your Body Knows.<br>Now You Do Too.</h2>
+    <p class="sub">Get your dosha-matched ritual delivered monthly. First box ships free, worldwide.</p>
+    <a class="btn btn-gold" href="#quiz" style="padding:18px 40px;font-size:1.05rem">Take the 60-Second Quiz →</a>
+    <div class="news" style="margin-left:0;justify-content:flex-start">
+      <input type="email" placeholder="Your email for rituals, recipes & research">
+      <button class="btn btn-gold" onclick="this.textContent='Welcome to the ritual ✦'">Subscribe</button>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">SVASTA ❁</div>
+        <p style="color:#9FB8A8">Ancient wisdom, bottled for the world. Ayurvedic wellness beverages from India to the world — with dignity for farmers and zero compromise on nature.</p>
+      </div>
+      <div><h4>Company</h4><a href="#story">Our Story</a><a href="#leadership">Leadership</a><a href="#markets">Markets</a><a href="#sustainability">Sustainability</a></div>
+      <div><h4>Products</h4><a href="#products">SVASTA Golden</a><a href="#products">SVASTA Cool</a><a href="#products">SVASTA Boost</a><a href="#products">SVASTA Night</a></div>
+      <div><h4>Connect</h4><a href="#">Instagram</a><a href="#">YouTube</a><a href="#">LinkedIn</a><a href="#">hello@svasta.com</a></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 SVASTA Wellness Pvt. Ltd. All rights reserved.</span><span>Made with 🌿 in India · Poured worldwide</span></div>
+  </div>
+</footer>
+
+<script>
+// Animated counters
+const counters=document.querySelectorAll('[data-count]');
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const el=e.target,t=+el.dataset.count;let c=0;const step=t/60;const tick=()=>{c+=step;if(c>=t){el.textContent=t.toLocaleString()+(t>=500?'':(t>=98?'%':''))}else{el.textContent=Math.floor(c).toLocaleString();requestAnimationFrame(tick)}};tick();io.unobserve(el)}}},{threshold:.5});
+counters.forEach(c=>io.observe(c));
+
+// Dosha quiz
+const QUESTIONS=[
+ {q:'When stress hits, you mostly feel…',opts:[['Anxious, scattered, racing thoughts','v'],['Hot, sharp, quick to react','p'],['Heavy, slow, want to withdraw','k']]},
+ {q:'Your ideal evening feels like…',q2:1,q:'Your energy through the day is…',opts:[['Wired at night, restless mornings','v'],['Intense bursts, then drained','p'],['Steady but sluggish, need push','k']]},
+ {q:'The result you want most…',opts:[['Calm, grounded focus','v'],['Cool balance and sharper digestion','p'],['Deep rest and steady energy','k']]}
+];
+// fix question 2 structure
+QUESTIONS[1]={q:'Your energy through the day is…',opts:[['Wired at night, restless mornings','v'],['Intense bursts, then drained','p'],['Steady but sluggish, need push','k']]};
+const DOSHAS={
+ v:{name:'Vata',desc:'Air + ether — creative, quick, sensitive. You thrive on grounding rituals.',rec:'SVASTA Night + Golden: warm, grounding herbs steady your brilliant, fast-moving mind.',color:'#B8A9E8'},
+ p:{name:'Pitta',desc:'Fire + water — sharp, driven, intense. You thrive on cooling balance.',rec:'SVASTA Cool: amla and mint cool the fire while keeping your famous focus.'},
+ k:{name:'Kapha',desc:'Earth + water — steady, loyal, strong. You thrive on light activation.',rec:'SVASTA Boost: ginger and shatavari lift your natural endurance without caffeine.'}
+};
+let scores={v:0,p:0,k:0},step=0;
+const qText=document.getElementById('qText'),qOpts=document.getElementById('qOpts'),qProg=document.getElementById('qProg'),qResult=document.getElementById('qResult');
+function renderQ(){const q=QUESTIONS[step];qProg.textContent='QUESTION '+(step+1)+' / 3';qText.textContent=q.q;qOpts.innerHTML='';qOpts.style.display='grid';qResult.style.display='none';
+ q.opts.forEach(o=>{const b=document.createElement('button');b.className='quiz-opt';b.textContent=o[0];b.onclick=()=>{scores[o[1]]++;step++;step<3?renderQ():showResult()};qOpts.appendChild(b)})}
+function showResult(){qOpts.style.display='none';const top=Object.entries(scores).sort((a,b)=>b[1]-a[1])[0][0];const d=DOSHAS[top];
+ document.getElementById('doshaName').textContent=d.name;document.getElementById('doshaDesc').textContent=d.desc;document.getElementById('doshaRec').innerHTML='<b>Your ritual:</b> '+d.rec;
+ qResult.style.display='block';qProg.textContent='RESULT';
+ document.getElementById('shareBtn').onclick=e=>{e.preventDefault();const txt='My dosha is '+d.name+'! %23MyDoshaMyRitual %23SVASTA — find yours:';window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(txt),'_blank')};
+ document.getElementById('retryBtn').onclick=()=>{scores={v:0,p:0,k:0};step=0;qResult.style.display='none';renderQ()}}
+renderQ();
+</script>
+</body>
+</html>
