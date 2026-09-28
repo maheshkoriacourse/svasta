@@ -1,0 +1,19 @@
+{
+  "slide_size": "16:9",
+  "slides": [
+    {
+      "layout": "blank",
+      "background": "1B4332",
+      "notes": "SVASTA — The Global Ayurvedic Beverage Company. Ancient wisdom, bottled for the world."
+    },
+    {
+      "layout": "blank",
+      "background": "FAF6EF",
+      "shapes": [
+        {"type": "rectangle", "fill": "1B4332", "left": 0, "top": 0, "width": 6, "height": 7.5, "text": ""},
+        {"type": "rectangle", "fill": "E9B44C", "left": 6, "top": 0, "width": 4, "height": 7.5, "text": ""}
+      ],
+      "notes": "Cover: brand name + positioning statement."
+    }
+  ]
+}
